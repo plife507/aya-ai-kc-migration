@@ -1,0 +1,557 @@
+{
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "none",
+      "token": "__REHYDRATE_SECRET__"
+    },
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "controlUi": {
+      "allowInsecureAuth": false
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "/home/plife507/AYA-CLAW",
+      "models": {
+        "claude-cli/opus": {},
+        "claude-cli/sonnet": {},
+        "claude-cli/haiku": {},
+        "openai/gpt-5.5": {},
+        "openai/gpt-5.4": {}
+      },
+      "model": {
+        "primary": "openai/gpt-5.5",
+        "fallbacks": [
+          "claude-cli/opus",
+          "claude-cli/sonnet",
+          "claude-cli/haiku"
+        ]
+      },
+      "cliBackends": {
+        "claude-cli": {
+          "command": "/home/plife507/.local/bin/claude"
+        }
+      },
+      "embeddedPi": {
+        "executionContract": "strict-agentic"
+      },
+      "thinkingDefault": "high",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "contextInjection": "always",
+      "bootstrapMaxChars": 50000,
+      "bootstrapTotalMaxChars": 300000,
+      "embeddedHarness": {
+        "runtime": "codex"
+      },
+      "verboseDefault": "on"
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "Aya",
+        "default": true
+      },
+      {
+        "id": "kc",
+        "name": "KC"
+      }
+    ]
+  },
+  "auth": {
+    "profiles": {
+      "openai-codex:plife507@protonmail.com": {
+        "provider": "openai-codex",
+        "mode": "oauth",
+        "email": "plife507@protonmail.com"
+      }
+    }
+  },
+  "memory": {
+    "backend": "qmd",
+    "qmd": {
+      "command": "/home/plife507/.local/bin/qmd",
+      "sessions": {
+        "enabled": true
+      }
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "coding",
+    "alsoAllow": [
+      "message"
+    ],
+    "message": {
+      "crossContext": {
+        "allowAcrossProviders": true,
+        "marker": {
+          "enabled": true
+        }
+      }
+    },
+    "sessions": {
+      "visibility": "all"
+    },
+    "elevated": {
+      "enabled": true,
+      "allowFrom": {
+        "webchat": [
+          "id:openclaw-control-ui"
+        ],
+        "telegram": [
+          "id:7275500887"
+        ]
+      }
+    },
+    "web": {
+      "search": {
+        "provider": "tavily"
+      }
+    },
+    "media": {
+      "audio": {
+        "enabled": true,
+        "scope": {
+          "default": "deny",
+          "rules": [
+            {
+              "action": "allow",
+              "match": {
+                "channel": "telegram"
+              }
+            }
+          ]
+        },
+        "language": "en",
+        "attachments": {
+          "mode": "first",
+          "prefer": "path",
+          "maxAttachments": 1
+        },
+        "maxChars": 8000,
+        "timeoutSeconds": 180,
+        "echoTranscript": false,
+        "echoFormat": "📝 \"{transcript}\"",
+        "models": [
+          {
+            "type": "cli",
+            "command": "/home/plife507/AYA-CLAW/scripts/whisper-cli",
+            "args": [
+              "-m",
+              "/home/plife507/AYA-CLAW/.local-stt/whisper.cpp/models/ggml-base.en.bin",
+              "-f",
+              "{{MediaPath}}",
+              "-otxt",
+              "-of",
+              "{{OutputBase}}",
+              "-nt",
+              "-np"
+            ],
+            "capabilities": [
+              "audio"
+            ],
+            "timeoutSeconds": 180,
+            "maxChars": 8000
+          }
+        ]
+      }
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-24T21:32:25.703Z",
+    "lastRunVersion": "2026.4.22",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.4.24",
+    "lastTouchedAt": "2026-04-26T21:47:51.536Z"
+  },
+  "plugins": {
+    "allow": [
+      "openai",
+      "lossless-claw",
+      "telegram",
+      "slack",
+      "memory-core",
+      "acpx",
+      "browser",
+      "tavily",
+      "codex",
+      "memory-wiki",
+      "anthropic"
+    ],
+    "entries": {
+      "openai": {
+        "enabled": true
+      },
+      "codex": {
+        "enabled": true
+      },
+      "browser": {
+        "enabled": true
+      },
+      "slack": {
+        "enabled": true
+      },
+      "lossless-claw": {
+        "enabled": true,
+        "subagent": {
+          "allowModelOverride": true,
+          "allowedModels": [
+            "openai-codex/gpt-5.4-mini"
+          ]
+        },
+        "config": {
+          "summaryModel": "openai-codex/gpt-5.4-mini",
+          "expansionModel": "openai-codex/gpt-5.4-mini"
+        }
+      },
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
+      },
+      "acpx": {
+        "enabled": true,
+        "config": {
+          "permissionMode": "approve-all",
+          "nonInteractivePermissions": "fail"
+        }
+      },
+      "tavily": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+            "apiKey": "__REHYDRATE_SECRET__",
+            "baseUrl": "https://api.tavily.com"
+          }
+        }
+      },
+      "memory-wiki": {
+        "enabled": true,
+        "config": {
+          "vaultMode": "bridge",
+          "bridge": {
+            "enabled": true,
+            "readMemoryArtifacts": true,
+            "indexDreamReports": true,
+            "indexDailyNotes": true,
+            "indexMemoryRoot": true,
+            "followMemoryEvents": true
+          },
+          "search": {
+            "backend": "local",
+            "corpus": "wiki"
+          },
+          "context": {
+            "includeCompiledDigestPrompt": false
+          },
+          "ingest": {
+            "autoCompile": true,
+            "maxConcurrentJobs": 1,
+            "allowUrlIngest": false
+          }
+        }
+      },
+      "anthropic": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "lossless-claw": {
+        "source": "npm",
+        "spec": "@martian-engineering/lossless-claw@0.9.1",
+        "installPath": "/home/plife507/.openclaw/extensions/lossless-claw",
+        "version": "0.9.1",
+        "resolvedName": "@martian-engineering/lossless-claw",
+        "resolvedVersion": "0.9.1",
+        "resolvedSpec": "@martian-engineering/lossless-claw@0.9.1",
+        "integrity": "sha512-pMWe4mXad6Bpa3hLyh7RM3atc8vghTESHVVdx9NkzXauxG+bG0l5VtHw+QGfgal2uHAM/SfcRMhQjTKDbGWIrQ==",
+        "shasum": "4c9390b3c3c08cd1ece2353157b43806b62258af",
+        "resolvedAt": "2026-04-22T03:43:12.907Z",
+        "installedAt": "2026-04-22T03:43:30.493Z"
+      }
+    },
+    "slots": {
+      "contextEngine": "lossless-claw"
+    }
+  },
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "openclaw",
+    "executablePath": "/usr/bin/google-chrome-stable",
+    "headless": true,
+    "noSandbox": true,
+    "ssrfPolicy": {
+      "allowedHostnames": [
+        "127.0.0.1",
+        "localhost"
+      ]
+    },
+    "profiles": {
+      "openclaw": {
+        "driver": "existing-session",
+        "attachOnly": true,
+        "userDataDir": "/home/plife507/.openclaw/browser/aya-dev-chrome",
+        "color": "#3366FF"
+      },
+      "user": {
+        "driver": "existing-session",
+        "attachOnly": true,
+        "userDataDir": "/home/plife507/.openclaw/browser/aya-work-chrome",
+        "color": "#00AA00"
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "__REHYDRATE_SECRET__",
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "7275500887"
+      ],
+      "groups": {
+        "*": {
+          "requireMention": true
+        },
+        "-1003989941314": {
+          "requireMention": false,
+          "topics": {
+            "1": {
+              "requireMention": false,
+              "agentId": "main"
+            },
+            "3": {
+              "requireMention": false,
+              "agentId": "kc"
+            },
+            "5": {
+              "requireMention": false,
+              "agentId": "main"
+            },
+            "7": {
+              "requireMention": false,
+              "agentId": "main"
+            }
+          }
+        }
+      },
+      "accounts": {
+        "default": {
+          "streaming": {
+            "preview": {
+              "toolProgress": false
+            }
+          }
+        }
+      }
+    },
+    "slack": {
+      "enabled": true,
+      "mode": "socket",
+      "webhookPath": "/slack/events",
+      "botToken": "__REHYDRATE_SECRET__",
+      "appToken": "__REHYDRATE_SECRET__",
+      "userTokenReadOnly": "__REHYDRATE_SECRET__",
+      "groupPolicy": "allowlist",
+      "dmPolicy": "pairing",
+      "requireMention": true,
+      "replyToMode": "off",
+      "replyToModeByChatType": {
+        "channel": "all"
+      },
+      "channels": {
+        "C08CTUF1T7C": {
+          "requireMention": true,
+          "systemPrompt": "KC Slack reply routing: for an inbound Slack mention in this channel or one of its threads, your final assistant reply is automatically posted back to the current Slack target. Do not use the message tool to send a confirmation/reply to the same current Slack channel or thread. If you already used message(action=\"send\") for any user-visible reply, output exactly NO_REPLY as the final answer to avoid duplicate Slack responses."
+        },
+        "C07QEEN75EU": {
+          "requireMention": true,
+          "systemPrompt": "KC Slack reply routing: for an inbound Slack mention in this channel or one of its threads, your final assistant reply is automatically posted back to the current Slack target. Do not use the message tool to send a confirmation/reply to the same current Slack channel or thread. If you already used message(action=\"send\") for any user-visible reply, output exactly NO_REPLY as the final answer to avoid duplicate Slack responses."
+        },
+        "C07U7Q01Q49": {
+          "requireMention": true,
+          "systemPrompt": "KC Slack reply routing: for an inbound Slack mention in this channel or one of its threads, your final assistant reply is automatically posted back to the current Slack target. Do not use the message tool to send a confirmation/reply to the same current Slack channel or thread. If you already used message(action=\"send\") for any user-visible reply, output exactly NO_REPLY as the final answer to avoid duplicate Slack responses."
+        }
+      },
+      "thread": {
+        "historyScope": "thread",
+        "inheritParent": false,
+        "initialHistoryLimit": 20,
+        "requireExplicitMention": true
+      },
+      "streaming": {
+        "mode": "partial",
+        "nativeTransport": true
+      },
+      "allowFrom": [
+        "U08RVTWF03F"
+      ]
+    }
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "skills": {
+    "entries": {
+      "bear-notes": {
+        "enabled": true
+      },
+      "gog": {
+        "enabled": true
+      }
+    }
+  },
+  "mcp": {
+    "servers": {
+      "xmcp": {
+        "url": "http://127.0.0.1:8000/mcp",
+        "transport": "streamable-http"
+      },
+      "x-docs": {
+        "url": "https://docs.x.com/mcp",
+        "transport": "streamable-http"
+      },
+      "context7": {
+        "url": "https://mcp.context7.com/mcp",
+        "transport": "streamable-http",
+        "headers": {
+          "CONTEXT7_API_KEY": "ctx7sk-a1690568-dad9-4f09-b69c-2bcc286d0b60"
+        }
+      }
+    }
+  },
+  "secrets": "__REHYDRATE_SECRET__",
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "direct",
+          "id": "7275500887"
+        }
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "-1003989941314:topic:1"
+        }
+      }
+    },
+    {
+      "agentId": "kc",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "-1003989941314:topic:3"
+        }
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "-1003989941314:topic:5"
+        }
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "-1003989941314:topic:7"
+        }
+      }
+    },
+    {
+      "agentId": "kc",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C08CTUF1T7C"
+        }
+      }
+    },
+    {
+      "agentId": "kc",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C07QEEN75EU"
+        }
+      }
+    },
+    {
+      "agentId": "kc",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C07U7Q01Q49"
+        }
+      }
+    }
+  ],
+  "acp": {
+    "stream": {
+      "deliveryMode": "live",
+      "tagVisibility": {
+        "tool_call": true,
+        "tool_call_update": true,
+        "usage_update": true,
+        "available_commands_update": true,
+        "current_mode_update": true,
+        "config_option_update": true,
+        "session_info_update": true,
+        "plan": true,
+        "agent_message_chunk": true,
+        "agent_thought_chunk": false
+      },
+      "maxSessionUpdateChars": 1200,
+      "maxChunkChars": 1200,
+      "coalesceIdleMs": 350
+    }
+  }
+}

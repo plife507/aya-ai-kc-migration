@@ -1,0 +1,80 @@
+{
+  "name": "aya-ai-kc-migration-bundle",
+  "version": 2,
+  "visibility": "private-required",
+  "purpose": "Self-contained non-secret payload for rebuilding KC Aya / AYA-AI workflows on a new OpenClaw host.",
+  "payload_roots": [
+    {
+      "path": "bundle/workspace/kc",
+      "target": "$HOME/.openclaw/workspaces/agents/kc",
+      "description": "KC workspace context, docs, operating notes, and memory files."
+    },
+    {
+      "path": "bundle/skills",
+      "target": "$HOME/.openclaw/skills",
+      "description": "Canonical shared AYA-CLAW skill store."
+    },
+    {
+      "path": "bundle/projects",
+      "target": "$HOME/Projects",
+      "description": "Source projects used by migrated workflows."
+    },
+    {
+      "path": "bundle/config-templates",
+      "target": "$HOME/.openclaw/config-templates",
+      "description": "Redacted config templates for rebuilding runtime wiring."
+    },
+    {
+      "path": "bundle/docs",
+      "target": "$HOME/.openclaw/workspaces/shared/docs",
+      "description": "Shared OpenClaw/Aya docs."
+    },
+    {
+      "path": "bundle/references",
+      "target": "$HOME/.openclaw/workspaces/shared/references",
+      "description": "Shared runbooks and reference notes."
+    }
+  ],
+  "project_payloads": [
+    "CompanyCam",
+    "jobber",
+    "kc-pp-sync",
+    "KC-SALES-SYNC",
+    "KC-SALES-SYNC-dashboard"
+  ],
+  "critical_skills": [
+    "jobber-cli-v3-operator",
+    "jobber-job-identity",
+    "jobber-job-url-lookup",
+    "kc-pp-job-costing",
+    "kc-pp-sync",
+    "kc-pp-sync-operator",
+    "kc-slack-channel-operator",
+    "kc-slack-thread-resolver",
+    "kc-cloud-ops",
+    "gog-workspace-operator",
+    "openclaw-config-operator"
+  ],
+  "excluded_live_material": [
+    ".env and .env.local files",
+    "OAuth token caches",
+    "Google credential JSON files",
+    "client secret JSON files",
+    "keyrings",
+    "runtime queues/logs/databases",
+    ".git directories",
+    "node_modules and build artifacts"
+  ],
+  "rehydrate_separately": [
+    "OpenClaw provider/channel secrets",
+    "Telegram bot token",
+    "Slack bot/app credentials",
+    "Jobber OAuth client and refresh token",
+    "Google Workspace OAuth credentials",
+    "CompanyCam credentials",
+    "Cloud Run and Secret Manager IAM access",
+    "service-specific env files"
+  ],
+  "install_script": "scripts/install-bundle.sh",
+  "validation_script": "scripts/validate.sh"
+}

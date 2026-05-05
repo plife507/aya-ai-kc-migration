@@ -1,0 +1,7 @@
+interface:
+  display_name: "Jobber CLI v3 Operator"
+  short_description: "Run the canonical Jobber CLI v3 safely"
+  default_prompt: "Use $jobber-cli-v3-operator to resolve a Jobber job and perform the requested v3 CLI action safely."
+
+policy:
+  allow_implicit_invocation: true

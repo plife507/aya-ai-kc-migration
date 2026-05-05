@@ -1,0 +1,4 @@
+interface:
+  display_name: "KC Cloud Ops"
+  short_description: "GCloud deploys, logs, secrets, and Sheets checks"
+  default_prompt: "Use $kc-cloud-ops to inspect, deploy, and verify a KC Cloud Run service with gcloud and gog."

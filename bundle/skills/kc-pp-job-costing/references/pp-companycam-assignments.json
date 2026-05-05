@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "description": "Explicit PP identity mapping for the KC PP job workflow. Aliases resolve the Slack Sub label, Jobber expense vendor label, and CompanyCam project assignees from one reviewed source.",
+  "assignments": [
+    {
+      "key": "jason-ednoff",
+      "aliases": ["jason", "jason ednoff", "pp jason", "pp jason ednoff", "soutdoor services", "south outdoor services"],
+      "slackSub": "Jason",
+      "expenseVendor": "Jason",
+      "companyCamUsers": [
+        {"id": "3470389", "name": "PP - Jason Ednoff"}
+      ]
+    },
+    {
+      "key": "efrain-jose-worker",
+      "aliases": ["efrain", "efrain jose", "efrain jose worker", "pp efrain", "seimes", "seimes janitorial"],
+      "slackSub": "Efrain / Efrain Jose Worker",
+      "expenseVendor": "Efrain",
+      "companyCamUsers": [
+        {"id": "3941861", "name": "PP - Efrain (Jose)"},
+        {"id": "3653981", "name": "PP - Efrain Garcia"}
+      ],
+      "notes": "Assign both CompanyCam users whenever Efrain worker is assigned."
+    },
+    {
+      "key": "shamus-wp-washpros",
+      "aliases": ["shamus", "shamus wp", "washpro - shamus", "washpro shamus", "washpros", "wash pros", "shamus wp washpros", "shamus wp - washpros"],
+      "slackSub": "Shamus WP - Washpros",
+      "expenseVendor": "Shamus WP - Washpros",
+      "companyCamUsers": [
+        {"id": "3930087", "name": "PP - Shamus WP"}
+      ]
+    },
+    {
+      "key": "adam-gonzalez",
+      "aliases": ["adam", "adam gonzalez", "pp adam", "pp adam gonzalez"],
+      "slackSub": "Adam",
+      "expenseVendor": "Adam",
+      "companyCamUsers": [
+        {"id": "3663190", "name": "PP - Adam Gonzalez"}
+      ]
+    },
+    {
+      "key": "incompis",
+      "aliases": ["incompis", "pp incompis"],
+      "slackSub": "Incompis",
+      "expenseVendor": "Incompis",
+      "companyCamUsers": [
+        {"id": "3967329", "name": "PP Incompis"}
+      ]
+    },
+    {
+      "key": "charm-brittian",
+      "aliases": ["charm", "charm brittian", "pp charm", "pp charm brittian"],
+      "slackSub": "Charm",
+      "expenseVendor": "Charm",
+      "companyCamUsers": [
+        {"id": "3672829", "name": "PP - Charm Brittian"}
+      ]
+    },
+    {
+      "key": "roberto-perez",
+      "aliases": ["roberto", "roberto perez", "robert perez", "pp roberto", "pp roberto perez", "pp robert perez", "all phase cleaning", "perez all phase cleaning"],
+      "slackSub": "Roberto Perez",
+      "expenseVendor": "Roberto Perez",
+      "companyCamUsers": [
+        {"id": "4018563", "name": "PP - Robert Perez"}
+      ]
+    },
+    {
+      "key": "juan-garcia",
+      "aliases": ["juan", "juan garcia", "pp juan", "pp juan garcia"],
+      "slackSub": "Juan Garcia",
+      "expenseVendor": "Juan Garcia",
+      "companyCamUsers": [
+        {"id": "3544597", "name": "PP - Juan Garcia"}
+      ]
+    },
+    {
+      "key": "andres-manzanarez",
+      "aliases": ["andres", "andres manzanarez", "pp andres", "pp andres manzanarez"],
+      "slackSub": "Andres",
+      "expenseVendor": "Andres",
+      "companyCamUsers": [
+        {"id": "3143046", "name": "PP - Andres Manzanarez"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+# Secrets
+.env
+.env.local
+tokens/
+SECRETS.md
+*.token
+*.jwt
+
+# Node
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.yarn/cache
+.yarn/install-state.gz
+.pnp.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Test output
+coverage/
+.nyc_output/
+
+# Schema cache (regeneratable, large)
+jobber-cli*/lib/schema/cached-schema.json
+jobber-cli*/schema-cache.json
+
+# Nested repo (standalone git)
+jobber-cli-v3/
