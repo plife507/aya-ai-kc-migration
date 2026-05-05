@@ -1,0 +1,22 @@
+# Local/editor noise
+.DS_Store
+*.swp
+*.tmp
+.cache/
+
+# Generated ingestion bundles and reports
+aya-ai-ingestion-bundle/
+reports/generated/
+
+# Never commit secrets or runtime state
+.env
+.env.*
+!.env.example
+*token*.json
+*credentials*.json
+client_secret.json
+keyring/
+secrets/
+node_modules/
+.venv/
+.git/
