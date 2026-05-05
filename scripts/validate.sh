@@ -27,6 +27,7 @@ required_paths=(
   "bundle/projects/KC-SALES-SYNC/package.json"
   "bundle/config-templates/openclaw.redacted.json"
   "scripts/install-bundle.sh"
+  "scripts/apply-telegram-visibility-profile.sh"
 )
 
 for path in "${required_paths[@]}"; do
@@ -77,10 +78,12 @@ if command -v rg >/dev/null 2>&1; then
   fi
 fi
 
-if [ ! -x scripts/install-bundle.sh ]; then
-  echo "scripts/install-bundle.sh is not executable" >&2
-  exit 1
-fi
+for script in scripts/install-bundle.sh scripts/apply-telegram-visibility-profile.sh; do
+  if [ ! -x "$script" ]; then
+    echo "$script is not executable" >&2
+    exit 1
+  fi
+done
 
 echo "OK: migration bundle validates."
 echo "Payload files: $(find bundle -type f | wc -l | tr -d ' ')"

@@ -76,5 +76,6 @@
     "service-specific env files"
   ],
   "install_script": "scripts/install-bundle.sh",
+  "telegram_visibility_script": "scripts/apply-telegram-visibility-profile.sh",
   "validation_script": "scripts/validate.sh"
 }

@@ -23,6 +23,7 @@ When the dry run looks right:
 
 ```bash
 ./scripts/install-bundle.sh --target "$HOME/.openclaw" --projects "$HOME/Projects"
+./scripts/apply-telegram-visibility-profile.sh --check-runtime
 ```
 
 ## What Is Bundled
@@ -101,4 +102,5 @@ Validation checks:
 - `ingestion-plan.md` - operator guidance for ingestion/chunking.
 - `references-skills-runbook.md` - notes on skills and systems.
 - `scripts/install-bundle.sh` - target-host restore helper.
+- `scripts/apply-telegram-visibility-profile.sh` - restores the current Telegram visibility profile on the new host.
 - `scripts/validate.sh` - bundle validation.
