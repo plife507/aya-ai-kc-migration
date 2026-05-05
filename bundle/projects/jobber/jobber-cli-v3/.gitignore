@@ -1,0 +1,28 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+tokens/
+schema-cache.json
+.DS_Store
+coverage/
+*.tsbuildinfo
+
+# Local agent/operator scratch files
+.cache/
+.tmp/
+tmp/
+.tmp_*
+tmp-*
+kc_jobs_*.graphql
+PHASES-7-11.md
+
+# Yarn 4 — https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
