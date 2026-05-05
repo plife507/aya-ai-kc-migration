@@ -15,11 +15,6 @@ bundle/projects/CompanyCam/docs/project-brief.md
 bundle/projects/CompanyCam/docs/setup.md
 bundle/projects/CompanyCam/docs/tomorrow-use.md
 bundle/projects/CompanyCam/.env.example
-bundle/projects/CompanyCam/exports/companycam_pp_mapping_template_active.csv
-bundle/projects/CompanyCam/exports/companycam_pp_mapping_template_full.csv
-bundle/projects/CompanyCam/exports/companycam_pp_mapping_template_README.md
-bundle/projects/CompanyCam/exports/companycam_users.csv
-bundle/projects/CompanyCam/exports/companycam_users.json
 bundle/projects/CompanyCam/.gitignore
 bundle/projects/CompanyCam/package.json
 bundle/projects/CompanyCam/package-lock.json
@@ -332,8 +327,6 @@ bundle/projects/kc-pp-sync/test/jobber-auth.test.ts
 bundle/projects/kc-pp-sync/test/output-sheet.test.ts
 bundle/projects/kc-pp-sync/TODO.md
 bundle/projects/kc-pp-sync/tsconfig.json
-bundle/projects/KC-SALES-SYNC-dashboard/dashboard/data/live-data.js
-bundle/projects/KC-SALES-SYNC-dashboard/dashboard/data/live-data.json
 bundle/projects/KC-SALES-SYNC-dashboard/dashboard/index.html
 bundle/projects/KC-SALES-SYNC-dashboard/dashboard/README.md
 bundle/projects/KC-SALES-SYNC-dashboard/.env.example
@@ -371,7 +364,6 @@ bundle/projects/KC-SALES-SYNC-dashboard/tsconfig.json
 bundle/projects/KC-SALES-SYNC/.env.example
 bundle/projects/KC-SALES-SYNC/.gcloudignore
 bundle/projects/KC-SALES-SYNC/.gitignore
-bundle/projects/KC-SALES-SYNC/logs/sync.log
 bundle/projects/KC-SALES-SYNC/package.json
 bundle/projects/KC-SALES-SYNC/package-lock.json
 bundle/projects/KC-SALES-SYNC/phases/2026-04-22-cloud-handoff.md
